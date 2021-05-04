@@ -302,7 +302,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       double aux_tk_dzError_vtx  = (double)sqrt(iter_tk->dzError()*iter_tk->dzError()+vtx_zError*vtx_zError);
       double aux_tk_dxy_vtx = (double)iter_tk->dxy(vtxx);
       double aux_tk_dxyError_vtx  = (double)sqrt(iter_tk->dxyError()*iter_tk->dxyError()+vtx_xError*vtx_yError);
-      if(iter_tk->pt()<0.5)continue;
+      if(iter_tk->pt()<0.5 || iter_tk->pt()>8.0)continue;
       if(fabs(iter_tk->eta())>2.4)continue;
       if(!iter_tk->quality(reco::TrackBase::highPurity))continue;
       if(fabs(iter_tk->ptError())/iter_tk->pt()>0.1)continue;
